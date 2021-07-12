@@ -45,7 +45,7 @@ group :test do
   gem 'factory_bot'
   gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
   gem 'rspec-rails', '~> 5.0.0'
-  gem 'simplecov', '0.17.1', require: false # CC last supported v0.17
+  gem 'simplecov', '0.21.2', require: false # CC last supported v0.17
   gem 'webdrivers'
   gem 'webmock'
 end
