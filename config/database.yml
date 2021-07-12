@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("APP_DB_MAX_THREADS") { 5 } %>
+  host: <%= ENV.fetch("APP_DBHOST") { "localhost" } %>
+  username: <%= ENV.fetch("APP_DBUSER") { "postgres" } %>
+  password:
+
+staging:
+  <<: *default
+  database: registrar_center_staging
+
+test:
+  <<: *default
+  database: registrar_center_test
+
+development:
+  <<: *default
+  database: registrar_center_development
+
+production:
+  <<: *default
+  database: registrar_center_production
