@@ -37,3 +37,9 @@ yarn-debug.log*
 
 .idea/
 /coverage/*
+
+# All the local-specific ENV variable values
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
