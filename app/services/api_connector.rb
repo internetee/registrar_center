@@ -4,13 +4,18 @@ class ApiConnector
   attr_reader :auth_token
 
   include ApiConnector::EndpointsStorage
-  include ApiConnector::BalanceChecker
 
   def initialize(username:, password:)
     @auth_token = generate_token(username: username, password: password)
   end
 
   private
+
+  def request(url:, params: nil, method:)
+    request = faraday_request(url: url, params: params)
+    response = request.send(method)
+    JSON.parse(response.body)
+  end
 
   def generate_token(username:, password:)
     Base64.urlsafe_encode64("#{username}:#{password}")
@@ -20,7 +25,7 @@ class ApiConnector
     "#{ENV['REPP_HOST']}#{ENV['REPP_ENDPOINT']}"
   end
 
-  def request(url:, params: {})
+  def faraday_request(url:, params: {})
     Faraday.new(
       url: url,
       headers: { 'Authorization' => "Basic #{@auth_token}" },
@@ -28,11 +33,11 @@ class ApiConnector
     )
   end
 
-  def endpoint_url
-    endpoint(ACTION)
-  end
-
   def endpoint(action)
     base_url + ENDPOINTS[action.to_sym][:endpoint]
+  end
+
+  def request_method(action)
+    ENDPOINTS[action.to_sym][:method]
   end
 end

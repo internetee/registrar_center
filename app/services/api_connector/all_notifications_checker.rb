@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 
 class ApiConnector
-  class BalanceChecker < ApiConnector
-    ACTION = 'check_balance'
+  class AllNotificationsChecker < ApiConnector
+    ACTION = 'check_all_notifications'
 
-    def check_balance(detailed: false, from_date: nil, until_date: nil)
+    def check_all_notifications(limit: 200, offset: 0)
       params = {
-        detailed: detailed,
-        from: from_date,
-        until: until_date,
+        limit: limit,
+        offset: offset,
       }
       request(url: endpoint_url, params: params, method: method)
     end
