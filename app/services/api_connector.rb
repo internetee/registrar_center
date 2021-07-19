@@ -11,7 +11,7 @@ class ApiConnector
 
   private
 
-  def request(url:, params: nil, method:)
+  def request(url:, method:, params: nil)
     request = faraday_request(url: url, params: params)
     response = request.send(method)
     JSON.parse(response.body)

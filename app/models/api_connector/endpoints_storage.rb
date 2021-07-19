@@ -16,6 +16,14 @@ class ApiConnector
         method: 'get',
         endpoint: '/registrar/notifications',
       },
+      mark_notification_read: {
+        method: 'put',
+        endpoint: '/registrar/notifications',
+      },
+      read_notification: {
+        method: 'get',
+        endpoint: '/registrar/notifications',
+      },
     }.freeze
   end
 end
