@@ -18,6 +18,9 @@ require 'simplecov'
 SimpleCov.start 'rails'
 puts "required simplecov"
 
+# require all the files from /spec/support directory
+Dir["./spec/support/**/*.rb"].sort.each { |f| require f }
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -32,6 +35,9 @@ RSpec.configure do |config|
     #     # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
+
+  # Save example status to re-run with --only-failures
+  config.example_status_persistence_file_path = 'spec/examples.txt'
 
   # rspec-mocks config goes here. You can use an alternate test double
   # library (such as bogus or mocha) by changing the `mock_with` option here.
