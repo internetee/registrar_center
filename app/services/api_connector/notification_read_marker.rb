@@ -8,7 +8,7 @@ class ApiConnector
       params = {
         notification: {
           read: true,
-        }
+        },
       }
       request(url: url_with_id(id), method: method, params: params)
     end
