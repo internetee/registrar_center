@@ -1,5 +1,9 @@
 require 'rails_helper'
 
+# Since HTTP request params are differ from method call arguments (e.g. we cannot use
+# reserved keyword `until`), we are overriding method prepare_method_params(params) here
+# That's unnecessary if all the keys/values from method call arguments could be passed
+# to HTTP request
 def prepare_method_params(params)
   let(:method_params) {
     {
@@ -10,15 +14,8 @@ def prepare_method_params(params)
   }
 end
 
-def prepare_options(params)
-  {
-    klass: ApiConnector::BalanceChecker,
-    params: params,
-  }
-end
-
 RSpec.describe ApiConnector::BalanceChecker do
-  it_behaves_like "Token generator", ApiConnector::BalanceChecker
+  it_behaves_like "Token generator"
 
   context 'with empty params' do
     params = {
@@ -26,17 +23,8 @@ RSpec.describe ApiConnector::BalanceChecker do
         from: nil,
         until: nil,
       }
-
-    prepare_method_params(params)
-
-    opts = prepare_options(params)
-
-    include_context 'Request sender', opts
-
-    it 'can send requests' do
-      conn = ApiConnector::BalanceChecker.new(username: 'aa', password: 'bb')
-      conn.check_balance(**method_params)
-    end
+    include_context 'Request sender', options(params)
+    check_sending_request(method: :check_balance, params: params)
   end
 
   context 'with set params' do
@@ -45,16 +33,7 @@ RSpec.describe ApiConnector::BalanceChecker do
       from: 10.days.ago,
       until: 10.days.from_now,
     }
-
-    prepare_method_params(params)
-
-    opts = prepare_options(params)
-
-    include_context 'Request sender', opts
-
-    it 'can send requests' do
-      conn = ApiConnector::BalanceChecker.new(username: 'aa', password: 'bb')
-      conn.check_balance(**method_params)
-    end
+    include_context 'Request sender', options(params)
+    check_sending_request(method: :check_balance, params: params)
   end
 end

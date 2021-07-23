@@ -14,6 +14,35 @@ def request_url(klass)
   base_url + endpoints[klass::ACTION.to_sym][:endpoint]
 end
 
+def prepare_creation_params
+  let(:new_attrs) {
+    {
+      username: Faker::Lorem.word,
+      password: Faker::Lorem.word
+    }
+  }
+end
+
+def prepare_method_params(params)
+  let(:method_params) { params }
+end
+
+def options(params)
+  {
+    klass: described_class,
+    params: params,
+  }
+end
+
+def check_sending_request(method:, params: {})
+  prepare_creation_params
+  prepare_method_params(params)
+  it 'can send requests' do
+    conn = described_class.new(**new_attrs)
+    conn.send(method, **method_params)
+  end
+end
+
 RSpec.shared_context "Request sender" do |options|
   klass= options[:klass]
   args = {
