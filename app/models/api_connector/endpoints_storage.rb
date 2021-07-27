@@ -24,6 +24,18 @@ class ApiConnector
         method: 'get',
         endpoint: '/registrar/notifications',
       },
+      load_all_contacts: {
+        method: 'get',
+        endpoint: '/contacts',
+      },
+      read_contact: {
+        method: 'get',
+        endpoint: '/contacts',
+      },
+      delete_contact: {
+        method: 'delete',
+        endpoint: '/contacts',
+      },
     }.freeze
   end
 end
