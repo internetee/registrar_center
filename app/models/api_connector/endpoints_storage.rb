@@ -44,6 +44,10 @@ class ApiConnector
         method: 'put',
         endpoint: '/contacts',
       },
+      check_contact: {
+        method: 'put',
+        endpoint: '/contacts',
+      },
     }.freeze
   end
 end

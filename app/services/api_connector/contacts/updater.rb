@@ -18,7 +18,7 @@ class ApiConnector
             name: payload[:name],
             email: payload[:email],
             phone: payload[:phone],
-          }
+          },
         }
       end
     end

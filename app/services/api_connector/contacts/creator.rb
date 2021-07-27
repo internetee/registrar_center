@@ -23,7 +23,7 @@ class ApiConnector
               ident_type: payload[:ident][:ident_type],
               ident_country_code: payload[:ident][:ident_country_code],
             },
-          }
+          },
         }
       end
     end
