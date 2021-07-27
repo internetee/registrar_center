@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ApiConnector::Contacts::Reader do
+RSpec.describe ApiConnector::Contacts::Deleter do
   it_behaves_like "Token generator"
 
   message_id = Faker::Number.positive(from: 1, to: 1000)

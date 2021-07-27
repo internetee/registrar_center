@@ -36,6 +36,10 @@ class ApiConnector
         method: 'delete',
         endpoint: '/contacts',
       },
+      create_contact: {
+        method: 'post',
+        endpoint: '/contacts',
+      },
     }.freeze
   end
 end
