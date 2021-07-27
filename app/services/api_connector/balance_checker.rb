@@ -2,6 +2,7 @@
 
 class ApiConnector
   class BalanceChecker < ApiConnector
+    include EndpointRequestable
     ACTION = 'check_balance'
 
     def check_balance(detailed: false, from: nil, until: nil)
@@ -11,16 +12,6 @@ class ApiConnector
         until: binding.local_variable_get(:until),
       }
       request(url: endpoint_url, params: params, method: method)
-    end
-
-    private
-
-    def endpoint_url
-      endpoint(ACTION)
-    end
-
-    def method
-      request_method(ACTION)
     end
   end
 end

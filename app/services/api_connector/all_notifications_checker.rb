@@ -2,6 +2,7 @@
 
 class ApiConnector
   class AllNotificationsChecker < ApiConnector
+    include EndpointRequestable
     ACTION = 'check_all_notifications'
     DEFAULT_LIMIT = 200
     DEFAULT_OFFSET = 0
@@ -16,16 +17,6 @@ class ApiConnector
         offset: offset,
       }
       request(url: endpoint_url, params: params, method: method)
-    end
-
-    private
-
-    def endpoint_url
-      endpoint(ACTION)
-    end
-
-    def method
-      request_method(ACTION)
     end
   end
 end
