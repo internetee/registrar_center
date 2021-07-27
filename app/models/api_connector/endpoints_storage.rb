@@ -40,6 +40,10 @@ class ApiConnector
         method: 'post',
         endpoint: '/contacts',
       },
+      update_contact: {
+        method: 'put',
+        endpoint: '/contacts',
+      },
     }.freeze
   end
 end
