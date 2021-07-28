@@ -5,6 +5,10 @@ class ApiConnector
     class Updater < ApiConnector
       include EndpointRequestable
       ACTION = 'update_contact'
+      ENDPOINT = {
+        method: 'put',
+        endpoint: '/contacts',
+      }.freeze
 
       def update_contact(payload: nil, id: 0)
         request(url: url_with_id(id), method: method, params: contact_params(payload))

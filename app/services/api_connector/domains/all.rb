@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 class ApiConnector
-  module Contacts
+  module Domains
     class All < ApiConnector
       include EndpointRequestable
-      ACTION = 'load_all_contacts'
       ENDPOINT = {
         method: 'get',
-        endpoint: '/contacts',
+        endpoint: '/domains',
       }.freeze
+      ACTION = 'load_all_domains'
 
-      def load_all_contacts
+      def load_all_domains
         request(url: endpoint_url, method: method)
       end
     end

@@ -5,6 +5,10 @@ class ApiConnector
     class Creator < ApiConnector
       include EndpointRequestable
       ACTION = 'create_contact'
+      ENDPOINT = {
+        method: 'post',
+        endpoint: '/contacts',
+      }.freeze
 
       def create_contact(payload: nil)
         request(url: endpoint_url, method: method, params: contact_params(payload))

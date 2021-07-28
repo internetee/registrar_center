@@ -4,6 +4,10 @@ class ApiConnector
   class BalanceChecker < ApiConnector
     include EndpointRequestable
     ACTION = 'check_balance'
+    ENDPOINT = {
+      method: 'get',
+      endpoint: '/accounts/balance',
+    }.freeze
 
     def check_balance(detailed: false, from: nil, until: nil)
       params = {

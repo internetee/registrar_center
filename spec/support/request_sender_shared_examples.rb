@@ -2,12 +2,12 @@ def klass
   described_class
 end
 
-def endpoints
-  ApiConnector::EndpointsStorage::ENDPOINTS
+def endpoint
+  klass::ENDPOINT
 end
 
 def request_url
-  base_url + endpoints[checking_method][:endpoint]
+  base_url + endpoint[:endpoint]
 end
 
 def base_url
@@ -15,7 +15,7 @@ def base_url
 end
 
 def request_method
-  endpoints[checking_method][:method]
+  endpoint[:method]
 end
 
 def checking_method

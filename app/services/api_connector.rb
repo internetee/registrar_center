@@ -3,8 +3,6 @@
 class ApiConnector
   attr_reader :auth_token
 
-  include ApiConnector::EndpointsStorage
-
   def initialize(username:, password:)
     @auth_token = generate_token(username: username, password: password)
   end
@@ -33,11 +31,11 @@ class ApiConnector
     )
   end
 
-  def endpoint(action)
-    base_url + ENDPOINTS[action.to_sym][:endpoint]
+  def endpoint(storage)
+    base_url + storage[:endpoint]
   end
 
-  def request_method(action)
-    ENDPOINTS[action.to_sym][:method]
+  def request_method(storage)
+    storage[:method]
   end
 end

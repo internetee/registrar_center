@@ -10,6 +10,10 @@ class ApiConnector
       limit: DEFAULT_LIMIT,
       offset: DEFAULT_OFFSET,
     }.freeze
+    ENDPOINT = {
+      method: 'get',
+      endpoint: '/registrar/notifications/all_notifications',
+    }.freeze
 
     def check_all_notifications(limit: DEFAULT_LIMIT, offset: DEFAULT_OFFSET)
       params = {

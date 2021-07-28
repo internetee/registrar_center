@@ -8,11 +8,11 @@ module EndpointRequestable
     end
 
     def endpoint_url
-      endpoint(self.class::ACTION)
+      endpoint(self.class::ENDPOINT)
     end
 
     def method
-      request_method(self.class::ACTION)
+      request_method(self.class::ENDPOINT)
     end
   end
 end
