@@ -30,6 +30,7 @@ def stub_args(options)
   params = options[:request_params]
   result = params.present? ? args.merge(params: params) : args
   result[:url] += options[:add_to_url].to_s
+  result.merge!({ headers: options[:headers] }) if options[:headers]
   result
 end
 
@@ -50,7 +51,7 @@ end
 def stub_params(options)
   {
     params: options[:request_params],
-    url: options[:url]
+    url: options[:url],
   }
 end
 

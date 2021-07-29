@@ -9,8 +9,8 @@ class ApiConnector
 
   private
 
-  def request(url:, method:, params: nil)
-    request = faraday_request(url: url, params: params)
+  def request(url:, method:, params: nil, headers: nil)
+    request = faraday_request(url: url, params: params, headers: headers)
     response = request.send(method)
     JSON.parse(response.body)
   end
@@ -23,12 +23,16 @@ class ApiConnector
     "#{ENV['REPP_HOST']}#{ENV['REPP_ENDPOINT']}"
   end
 
-  def faraday_request(url:, params: {})
+  def faraday_request(url:, params: {}, headers: {})
     Faraday.new(
       url: url,
-      headers: { 'Authorization' => "Basic #{@auth_token}" },
+      headers: add_headers(headers),
       params: params
     )
+  end
+
+  def add_headers(add_headers)
+    { 'Authorization' => "Basic #{@auth_token}" }.merge!(add_headers)
   end
 
   def endpoint(storage)
