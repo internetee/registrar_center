@@ -27,14 +27,14 @@ class ApiConnector
             period: payload[:period],
             admin_contact: payload[:admin_contact], # Array of idents
             tech_contact: payload[:tech_contact], # Array of idents
-            nameserver_attributes: payload[:nameserver_attributes].each do |ns_attr|
+            nameserver_attributes: payload[:nameserver_attributes].each do |ns_attr| # Array of attrs
               {
               hostname: ns_attr[:hostname],
               ipv4: ns_attr[:ipv4],
               ipv6: ns_attr[:ipv6],
               }
               end,
-            dnskey_attributes: payload[:dnskey_attributes].each do |dnskey_attr|
+            dnskey_attributes: payload[:dnskey_attributes].each do |dnskey_attr| # Array of attrs
               {
               flags: dnskey_attr[:flags],
               protocol: dnskey_attr[:protocol],
