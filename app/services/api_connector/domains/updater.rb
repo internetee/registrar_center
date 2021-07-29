@@ -10,7 +10,7 @@ class ApiConnector
         endpoint: '/domains',
       }.freeze
 
-      def update_domain(payload: nil, domain_name: "")
+      def update_domain(payload: nil, domain_name: '')
         request(url: url_with_id(domain_name), method: method, params: domain_params(payload))
       end
 
@@ -23,7 +23,7 @@ class ApiConnector
               code: payload[:registrant][:code],
               verified: payload[:registrant][:verified],
             },
-          transfer_code: payload[:transfer_code],
+            transfer_code: payload[:transfer_code],
           },
         }
       end

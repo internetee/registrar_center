@@ -23,8 +23,8 @@ class ApiConnector
       def domain_params(payload)
         {
           transfer: {
-            transfer_code: payload[:transfer_code]
-          }
+            transfer_code: payload[:transfer_code],
+          },
         }
       end
     end

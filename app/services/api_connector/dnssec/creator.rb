@@ -22,14 +22,14 @@ class ApiConnector
 
       def domain_params(payload)
         {
-          dns_keys: payload[:dns_keys].each do |dns_key| # Array of attrs
+          dns_keys: payload[:dns_keys].map do |dns_key| # Array of attrs
             {
               flags: dns_key[:flags],
               protocol: dns_key[:protocol],
               alg: dns_key[:alg],
               public_key: dns_key[:public_key],
             }
-          end
+          end,
         }
       end
     end

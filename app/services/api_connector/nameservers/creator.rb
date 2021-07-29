@@ -22,13 +22,13 @@ class ApiConnector
 
       def domain_params(payload)
         {
-          nameservers: payload[:nameservers].each do |ns_attr| # Array of attrs
+          nameservers: payload[:nameservers].map do |ns_attr| # Array of attrs
             {
               hostname: ns_attr[:hostname],
               ipv4: ns_attr[:ipv4],
               ipv6: ns_attr[:ipv6],
             }
-          end
+          end,
         }
       end
     end
