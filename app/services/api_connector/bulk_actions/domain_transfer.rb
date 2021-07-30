@@ -22,7 +22,7 @@ class ApiConnector
             domain_transfers: payload[:domain_transfers].map do |transfer|
               {
                 domain_name: transfer[:domain_name],
-                transfer_code: transfer[:transfer_code]
+                transfer_code: transfer[:transfer_code],
               }
             end,
           },

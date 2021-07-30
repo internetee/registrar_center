@@ -19,7 +19,7 @@ class ApiConnector
       def transfer_params(payload)
         {
           current_contact_id: payload[:current_contact_id],
-          new_contact_id: payload[:new_contact_id]
+          new_contact_id: payload[:new_contact_id],
         }
       end
     end
