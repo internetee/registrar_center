@@ -43,3 +43,7 @@ yarn-debug.log*
 .env.test.local
 .env.production.local
 .env.local
+
+# IRB setup & history
+.irb-history
+.irbrc

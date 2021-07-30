@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.2'
 
+gem 'faraday'
+gem 'faraday_middleware'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1'
 # Use postgresql as the database for Active Record
@@ -45,6 +48,7 @@ group :test do
   gem 'capybara'
   gem 'factory_bot'
   gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
+  gem 'fuubar'
   gem 'rspec-rails', '~> 5.0.0'
   gem 'simplecov', '0.17.1', require: false # CC last supported v0.17
   gem 'webdrivers'
