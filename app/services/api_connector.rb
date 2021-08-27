@@ -12,7 +12,9 @@ class ApiConnector
   def request(url:, method:, params: nil, headers: nil)
     request = faraday_request(url: url, params: params, headers: headers)
     response = request.send(method)
-    JSON.parse(response.body)
+    success = response.status == 200
+    OpenStruct.new(body: JSON.parse(response.body).with_indifferent_access,
+                   success: success)
   end
 
   def generate_token(username:, password:)
@@ -31,8 +33,12 @@ class ApiConnector
     )
   end
 
-  def add_headers(add_headers)
-    { 'Authorization' => "Basic #{@auth_token}" }.merge!(add_headers)
+  def add_headers(add_headers = nil)
+    add_headers.present? ? base_headers.merge!(add_headers) : base_headers
+  end
+
+  def base_headers
+    { 'Authorization' => "Basic #{@auth_token}" }
   end
 
   def endpoint(storage)
