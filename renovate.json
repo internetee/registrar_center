@@ -21,8 +21,7 @@
     "enabled": false
   },
   "ignorePaths": [
-    "Dockerfile", "Dockerfile.*", ".github/workflows/build_deploy_staging.yml",
-    ".github/workflows/remove_st_after_pr.yml", ".nvmrc", ".github/workflows/autorebase.yml"
+    "Dockerfile", "Dockerfile.*"
   ],
   "rangeStrategy": "replace",
   "separateMajorMinor": true,
