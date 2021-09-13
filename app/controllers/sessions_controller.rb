@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
 
     if res.authenticated
       session[:uuid] = res.uuid
-      cache.write(res.uuid, store_hash )
       render text: 'ok', status: :ok
     else
       render :new, status: :forbidden
@@ -16,10 +15,6 @@ class SessionsController < ApplicationController
 
   def auth_params
     params.permit(:username, :password)
-  end
-
-  def cache
-    Rails.cache
   end
 
   def store_hash
