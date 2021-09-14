@@ -41,13 +41,13 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - daa2f5f4-c64f-47d7-ac55-604ab1b71a26
+      - 51685ddc-e25d-47b9-94d0-699059e87bb6
       X-Runtime:
-      - '0.110152'
+      - '0.108850'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"code":1000,"message":"Command completed successfully","data":{"id":115582124,"text":"Welcome!","attached_obj_type":null,"attached_obj_id":null,"read":false}}'
-  recorded_at: Tue, 14 Sep 2021 08:48:59 GMT
+  recorded_at: Tue, 14 Sep 2021 09:42:29 GMT
 recorded_with: VCR 6.0.0

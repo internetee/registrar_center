@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - Basic dGVzdF9iZXN0bmFtZXM6dGVzdHRlc3Q=
+      - Basic YXQ6OUVlODhGbVcw
       User-Agent:
       - Faraday v1.7.1
       Accept-Encoding:
@@ -17,8 +17,8 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 200
-      message: OK
+      code: 401
+      message: Unauthorized
     headers:
       X-Frame-Options:
       - SAMEORIGIN
@@ -36,20 +36,16 @@ http_interactions:
       - application/json; charset=utf-8
       Vary:
       - Accept
-      Etag:
-      - W/"ab43be6fdbee7e41a59ff8b792818b13"
       Cache-Control:
-      - max-age=0, private, must-revalidate
+      - no-cache
       X-Request-Id:
-      - af02125f-df39-454f-a572-b61c309834fe
+      - 1533f485-73f9-4e91-8620-15464c2ed438
       X-Runtime:
-      - '0.149023'
+      - '0.097951'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"code":1000,"message":"Command completed successfully. Returning 1
-        out of 1. Use URL parameters :limit and :offset to list other messages if
-        needed.","data":[{"id":115582124,"text":"Welcome!","attached_obj_type":null,"attached_obj_id":null}]}'
+      string: '{"code":2202,"message":"Invalid authorization information"}'
   recorded_at: Tue, 14 Sep 2021 09:42:29 GMT
 recorded_with: VCR 6.0.0

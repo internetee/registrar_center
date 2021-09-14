@@ -1,24 +1,26 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: http://registry:3000/repp/v1/registrar/notifications/all_notifications?limit&offset
+    method: put
+    uri: http://registry:3000/repp/v1/registrar/notifications/115582124?notification%5Bread%5D=true
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
       Authorization:
-      - Basic dGVzdF9iZXN0bmFtZXM6dGVzdHRlc3Q=
+      - Basic dWxsYW06RjVzUXFLdUVuVHozNVplUQ==
       User-Agent:
       - Faraday v1.7.1
+      Content-Length:
+      - '0'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - "*/*"
   response:
     status:
-      code: 200
-      message: OK
+      code: 401
+      message: Unauthorized
     headers:
       X-Frame-Options:
       - SAMEORIGIN
@@ -36,20 +38,16 @@ http_interactions:
       - application/json; charset=utf-8
       Vary:
       - Accept
-      Etag:
-      - W/"ab43be6fdbee7e41a59ff8b792818b13"
       Cache-Control:
-      - max-age=0, private, must-revalidate
+      - no-cache
       X-Request-Id:
-      - af02125f-df39-454f-a572-b61c309834fe
+      - 2e9bef88-ebab-4a01-8775-30860979bf32
       X-Runtime:
-      - '0.149023'
+      - '0.101600'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"code":1000,"message":"Command completed successfully. Returning 1
-        out of 1. Use URL parameters :limit and :offset to list other messages if
-        needed.","data":[{"id":115582124,"text":"Welcome!","attached_obj_type":null,"attached_obj_id":null}]}'
-  recorded_at: Tue, 14 Sep 2021 09:42:29 GMT
+      string: '{"code":2202,"message":"Invalid authorization information"}'
+  recorded_at: Tue, 14 Sep 2021 09:42:30 GMT
 recorded_with: VCR 6.0.0
