@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    conn = AuthChecker.new(username: auth_params['username'], password: auth_params['password'])
+    conn = AuthChecker.new(**store_hash)
     res = conn.check_auth
 
     if res.authenticated
@@ -15,5 +15,12 @@ class SessionsController < ApplicationController
 
   def auth_params
     params.permit(:username, :password)
+  end
+
+  def store_hash
+    {
+      username: auth_params['username'],
+      password: auth_params['password'],
+    }
   end
 end

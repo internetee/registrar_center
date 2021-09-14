@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  match "/500", to: "http_errors#internal_server_error", via: :all
+
   resource :session, only: %i[new create]
+  resources :messages, only: %i[index show update] do
+    get :latest, on: :collection
+  end
 end

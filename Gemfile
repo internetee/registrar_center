@@ -51,6 +51,7 @@ group :test do
   gem 'fuubar'
   gem 'rspec-rails', '~> 5.0.2'
   gem 'simplecov', '0.17.1', require: false # CC last supported v0.17
+  gem 'vcr'
   gem 'webdrivers'
   gem 'webmock'
 end

@@ -18,6 +18,13 @@ require 'simplecov'
 SimpleCov.start 'rails'
 puts "required simplecov"
 
+require 'vcr'
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.hook_into :webmock
+end
+
 # require all the files from /spec/support directory
 Dir["./spec/support/**/*.rb"].sort.each { |f| require f }
 
