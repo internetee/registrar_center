@@ -17,6 +17,13 @@ RSpec.describe MessagesController, type: :controller do
       method: :latest,
       http_method: :get,
     },
+    {
+      method: :update,
+      http_method: :put,
+      params: {
+        id: 115582124,
+      }
+    },
   ]
 
   it_behaves_like "Base controller with auth", options
@@ -26,6 +33,15 @@ RSpec.describe MessagesController, type: :controller do
       pending 'test not implemented yet, should use another VCR cassette'
 
       get :show, params: { id: Faker::Number.positive }
+      expect(response.status).to eq(404)
+    end
+  end
+
+  context 'Update method with non-existent ID' do
+    it 'should return to #index with 404 error' do
+      pending 'test not implemented yet, should use another VCR cassette'
+
+      put :update, params: { id: Faker::Number.positive }
       expect(response.status).to eq(404)
     end
   end

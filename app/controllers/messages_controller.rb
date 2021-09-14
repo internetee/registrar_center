@@ -45,9 +45,20 @@ class MessagesController < BaseController
   end
 
   # Mark message as read
-  def edit; end
+  def update
+    conn = ApiConnector::NotificationReadMarker.new(**auth_info)
+    res = conn.mark_notification_read(id: messages_params[:id].to_i)
 
-  def update; end
+    if res.success
+      redirect_to :message, id: messages_params[:id].to_i, status: :ok
+    elsif res.body['code'] == 2202
+      redirect_to controller: 'sessions', action: 'new'
+    elsif res.body['code'] == 2303
+      redirect_to :index, status: :not_found
+    else
+      internal_server_error
+    end
+  end
 
   private
 
