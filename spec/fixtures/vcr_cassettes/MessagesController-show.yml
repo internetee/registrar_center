@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://registry:3000/repp/v1/registrar/notifications/all_notifications?limit&offset
+    uri: http://registry:3000/repp/v1/registrar/notifications/115582124
     body:
       encoding: US-ASCII
       string: ''
@@ -37,19 +37,17 @@ http_interactions:
       Vary:
       - Accept
       Etag:
-      - W/"ab43be6fdbee7e41a59ff8b792818b13"
+      - W/"b07b4f253b63f24d9bce965c0c57b760"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 97c5fa10-f6a7-4164-a82a-ed4358d883cf
+      - daa2f5f4-c64f-47d7-ac55-604ab1b71a26
       X-Runtime:
-      - '0.129362'
+      - '0.110152'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"code":1000,"message":"Command completed successfully. Returning 1
-        out of 1. Use URL parameters :limit and :offset to list other messages if
-        needed.","data":[{"id":115582124,"text":"Welcome!","attached_obj_type":null,"attached_obj_id":null}]}'
-  recorded_at: Tue, 14 Sep 2021 08:40:37 GMT
+      string: '{"code":1000,"message":"Command completed successfully","data":{"id":115582124,"text":"Welcome!","attached_obj_type":null,"attached_obj_id":null,"read":false}}'
+  recorded_at: Tue, 14 Sep 2021 08:48:59 GMT
 recorded_with: VCR 6.0.0

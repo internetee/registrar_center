@@ -15,7 +15,20 @@ class MessagesController < BaseController
   end
 
   # Get a specific message
-  def show; end
+  def show
+    conn = ApiConnector::NotificationReader.new(**auth_info)
+    res = conn.read_notification(id: messages_params[:id].to_i)
+
+    if res.success
+      @message = res.body['data']
+    elsif res.body['code'] == 2202
+      redirect_to controller: 'sessions', action: 'new'
+    elsif res.body['code'] == 2303
+      redirect_to :index, status: :not_found
+    else
+      internal_server_error
+    end
+  end
 
   # Get latest unread message
   def latest; end
@@ -28,6 +41,6 @@ class MessagesController < BaseController
   private
 
   def messages_params
-    params.permit(:limit, :offset)
+    params.permit(:limit, :offset, :id)
   end
 end
