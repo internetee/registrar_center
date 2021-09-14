@@ -12,7 +12,11 @@ RSpec.describe MessagesController, type: :controller do
       params: {
         id: 115582124,
       }
-    }
+    },
+    {
+      method: :latest,
+      http_method: :get,
+    },
   ]
 
   it_behaves_like "Base controller with auth", options

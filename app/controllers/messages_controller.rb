@@ -31,7 +31,18 @@ class MessagesController < BaseController
   end
 
   # Get latest unread message
-  def latest; end
+  def latest
+    conn = ApiConnector::LastNotificationChecker.new(**auth_info)
+    res = conn.check_notification
+
+    if res.success
+      @message = res.body['data']
+    elsif res.body['code'] == 2202
+      redirect_to controller: 'sessions', action: 'new'
+    else
+      internal_server_error
+    end
+  end
 
   # Mark message as read
   def edit; end
