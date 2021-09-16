@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://registry:3000/repp/v1/accounts/balance?detailed=false&from=2021-09-06&until=2021-09-11
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic dGVzdF9iZXN0bmFtZXM6dGVzdHRlc3Q=
+      User-Agent:
+      - Faraday v1.7.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"7c676fe884e56b5e50f5a2b92173873d"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - e377b40b-3a67-4bca-af3e-324be600fb0d
+      X-Runtime:
+      - '1.129786'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"code":1000,"message":"Command completed successfully","data":{"balance":"100.0","currency":"EUR"}}'
+  recorded_at: Thu, 16 Sep 2021 11:45:58 GMT
+recorded_with: VCR 6.0.0

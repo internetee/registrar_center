@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :messages, only: %i[index show update] do
     get :latest, on: :collection
   end
+  resource :balance_check, only: %i[show]
 end
