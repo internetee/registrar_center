@@ -13,17 +13,35 @@ RSpec.describe ContactsController, type: :controller do
         id: 115582124,
       }
     },
-    # {
-    #   method: :latest,
-    #   http_method: :get,
-    # },
-    # {
-    #   method: :update,
-    #   http_method: :put,
-    #   params: {
-    #     id: 115582124,
-    #   }
-    # },
+    {
+      method: :destroy,
+      http_method: :delete,
+      params: {
+        id: 115582124,
+      },
+    },
+    {
+      method: :update,
+      http_method: :put,
+      params: {
+        id: 115582124,
+        name: Faker::Name.name,
+        email: Faker::Internet.email,
+        phone: Faker::PhoneNumber.phone_number
+      }
+    },
+    {
+      method: :create,
+      http_method: :post,
+      params: {
+        name: Faker::Name.name,
+        email: Faker::Internet.email,
+        phone: Faker::PhoneNumber.phone_number,
+        ident: 'xxx',
+        ident_type: 'priv',
+        ident_country_code: 'EE',
+      }
+    }
   ]
 
   it_behaves_like "Base controller with auth", options
