@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://registry:3000/repp/v1/contacts?contact%5Bemail%5D=era@mayert.org&contact%5Bident%5D%5Bident%5D&contact%5Bident%5D%5Bident_country_code%5D&contact%5Bident%5D%5Bident_type%5D&contact%5Bname%5D=Marketta%20Breitenberg%20II&contact%5Bphone%5D=1-280-836-5234%20x339
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - Basic cHJvdmlkZW50Okt4RTBwT3FUNXM4TmhX
+      User-Agent:
+      - Faraday v1.7.1
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - f573d99d-9c76-4647-ba71-e930ac17549e
+      X-Runtime:
+      - '0.080966'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"code":2202,"message":"Invalid authorization information"}'
+  recorded_at: Sun, 24 Oct 2021 09:53:08 GMT
+recorded_with: VCR 6.0.0
