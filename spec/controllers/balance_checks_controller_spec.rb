@@ -7,8 +7,8 @@ RSpec.describe BalanceChecksController, type: :controller do
       http_method: :get,
       params: {
         detailed: false,
-        from: Time.zone.today - 10.days,
-        until: Time.zone.today - 5.days
+        from: Date.new(2021,9,6),
+        until: Date.new(2021,9,11)
       },
     },
   ]

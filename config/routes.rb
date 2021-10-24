@@ -6,4 +6,8 @@ Rails.application.routes.draw do
     get :latest, on: :collection
   end
   resource :balance_check, only: %i[show]
+
+  resources :contacts, only: %i[index show edit update destroy new create] do
+    get :check, on: :collection
+  end
 end

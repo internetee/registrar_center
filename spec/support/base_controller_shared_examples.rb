@@ -15,7 +15,7 @@ RSpec.shared_examples "Base controller with auth" do |options|
         self.send(option[:http_method], option[:method], params: option[:params])
       end
 
-      expect(response.status).to eq(200)
+      expect([200, 302]).to  include (response.status)
     end
 
     it "Redirects if no uuid in session" do
