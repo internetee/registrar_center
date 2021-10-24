@@ -11,7 +11,7 @@ RSpec.shared_examples "Base controller with auth" do |options|
     it "successfully checks for auth info in session" do
       session[:uuid] = uuid
       Rails.cache.write(uuid, auth_data_legal)
-      VCR.use_cassette("#{described_class}-#{option[:method]}", match_requests_on: [:host, :path, :query, :method]) do
+      VCR.use_cassette("#{described_class}-#{option[:method]}", match_requests_on: [:host, :path, :method]) do
         self.send(option[:http_method], option[:method], params: option[:params])
       end
 
@@ -36,7 +36,7 @@ RSpec.shared_examples "Base controller with auth" do |options|
       session[:uuid] = uuid
       Rails.cache.write(uuid, auth_data_fail)
 
-      VCR.use_cassette("#{described_class}-#{option[:method]}-auth-fail", match_requests_on: [:host, :path, :query, :method]) do
+      VCR.use_cassette("#{described_class}-#{option[:method]}-auth-fail", match_requests_on: [:host, :path, :method]) do
         self.send(option[:http_method], option[:method], params: option[:params])
       end
 

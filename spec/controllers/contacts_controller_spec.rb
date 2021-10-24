@@ -41,6 +41,13 @@ RSpec.describe ContactsController, type: :controller do
         ident_type: 'priv',
         ident_country_code: 'EE',
       }
+    },
+    {
+      method: :check,
+      http_method: :get,
+      params: {
+        id: 115582124,
+      }
     }
   ]
 

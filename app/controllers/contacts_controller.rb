@@ -72,6 +72,19 @@ class ContactsController < BaseController
     end
   end
 
+  def check
+    conn = ApiConnector::Contacts::AvailChecker.new(**auth_info)
+    cmd = conn.check_contact(id: contact_params[:id])
+
+    if cmd.success
+      @messages = cmd.body['data']
+    elsif cmd.body['code'] == 2202
+      redirect_to controller: 'sessions', action: 'new'
+    else
+      internal_server_error
+    end
+  end
+
   private
 
   def contact_params
@@ -86,8 +99,8 @@ class ContactsController < BaseController
       ident: {
         ident: contact_params[:ident],
         ident_type: contact_params[:ident_type],
-        ident_country_code: contact_params[:ident_country_code]
-      }
+        ident_country_code: contact_params[:ident_country_code],
+      },
     }
   end
 end
