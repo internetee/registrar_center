@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: http://registry:3000/repp/v1/domains/test.test?domain%5Bregistrant%5D%5Bcode%5D&domain%5Bregistrant%5D%5Bverified%5D&domain%5Btransfer_code%5D=a4d63b6635bbef8b0d8bf1d2059ea574
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - Basic dGVzdF9iZXN0bmFtZXM6dGVzdHRlc3Q=
+      User-Agent:
+      - Faraday v1.7.1
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - bdf34b0f-fce2-4489-a208-446d458b6554
+      X-Runtime:
+      - '0.603541'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"code":2202,"message":"Invalid authorization information"}'
+  recorded_at: Thu, 28 Oct 2021 14:43:01 GMT
+recorded_with: VCR 6.0.0
