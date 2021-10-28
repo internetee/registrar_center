@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   resources :contacts, only: %i[index show edit update destroy new create] do
     get :check, on: :collection
   end
+
+  resources :domains, only: %i[index show edit update destroy new create], param: :domain_name do
+    put :renew, on: :collection
+  end
 end

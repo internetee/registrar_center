@@ -28,7 +28,8 @@ class ApiConnector
       end
 
       def add_headers(payload)
-        { 'Auth-Code' => payload[:auth_code] } if payload[:auth_code]
+        # binding.pry
+        { 'Auth-Code' => payload[:auth_code] } if payload && payload[:auth_code]
       end
     end
   end

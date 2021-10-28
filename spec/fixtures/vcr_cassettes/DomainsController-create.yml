@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://registry:3000/repp/v1/domains?domain%5Badmin_contact%5D&domain%5Bdnskey_attributes%5D%5B0%5D%5Balg%5D=10&domain%5Bdnskey_attributes%5D%5B0%5D%5Bflags%5D=256&domain%5Bdnskey_attributes%5D%5B0%5D%5Bprotocol%5D=3&domain%5Bdnskey_attributes%5D%5B0%5D%5Bpublic_key%5D=08972e614e1d7f2b1e7690de787d66762e0d6efd47715ee009b625d3efad13ea&domain%5Bname%5D=senger.info&domain%5Bnameserver_attributes%5D%5B0%5D%5Bhostname%5D=ns1.mayer-bahringer.info&domain%5Bnameserver_attributes%5D%5B0%5D%5Bipv4%5D=245.70.50.15&domain%5Bnameserver_attributes%5D%5B0%5D%5Bipv6%5D=913f:2d1c:d594:b25e:e937:1511:9720:da23&domain%5Bperiod%5D=1&domain%5Bperiod_unit%5D=m&domain%5Bregistrant%5D=qui&domain%5Breserved_pw%5D=C0eYcRa6BgUdIj&domain%5Btech_contact%5D&domain%5Btransfer_code%5D=AtF6w2CfA727
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - Basic dGVzdF9iZXN0bmFtZXM6dGVzdHRlc3Q=
+      User-Agent:
+      - Faraday v1.7.1
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 60dbcfce-75e0-415e-b335-d9d124065894
+      X-Runtime:
+      - '1.089994'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"code":2202,"message":"Invalid authorization information"}'
+  recorded_at: Thu, 28 Oct 2021 14:25:14 GMT
+recorded_with: VCR 6.0.0
