@@ -12,7 +12,7 @@ RSpec.describe ApiConnector::Nameservers::Deleter do
         nameserver_hostname: nameserver_hostname,
       },
       check_with_params: true,
-      add_to_url: "/#{domain_name}/nameservers/#{nameserver_hostname}",
+      add_to_url: "/domains/#{domain_name}/nameservers/#{nameserver_hostname}",
     }
 
   context 'with parameter' do

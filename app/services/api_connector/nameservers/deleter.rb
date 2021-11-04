@@ -7,7 +7,7 @@ class ApiConnector
       ACTION = 'delete_nameserver'
       ENDPOINT = {
         method: 'delete',
-        endpoint: '/nameservers',
+        endpoint: '/',
       }.freeze
 
       def delete_nameserver(domain_name: '', nameserver_hostname: '')
@@ -19,7 +19,7 @@ class ApiConnector
       private
 
       def url_with_id(domain_name: '', nameserver_hostname: '')
-        "#{endpoint_url}/#{domain_name}/nameservers/#{nameserver_hostname}"
+        "#{endpoint_url}/domains/#{domain_name}/nameservers/#{nameserver_hostname}"
       end
     end
   end
