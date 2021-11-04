@@ -51,6 +51,7 @@ exclude_patterns:
   - "lib/gem_monkey_patches/"
   - "lib/tasks/*"
   - "spec/"
+  - "spec/fixtures/vcr_cassettes/"
   - "vendor/"
   - "CHANGELOG.md"
   - "babel.config.js"

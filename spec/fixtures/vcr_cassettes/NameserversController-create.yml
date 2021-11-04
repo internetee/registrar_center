@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://registry:3000/repp/v1/domains/library.test/nameservers?nameservers%5B%5D%5Bhostname%5D=ns1.library.test&nameservers%5B%5D%5Bipv4%5D=113.30.167.160&nameservers%5B%5D%5Bipv6%5D=2223:3570:5e2d:1c53:f6f3:8936:22f:a698
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - Basic dGVzdF9iZXN0bmFtZXM6dGVzdHRlc3Q=
+      User-Agent:
+      - Faraday v1.7.1
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 61918851-0096-470e-bf07-cd252189e889
+      X-Runtime:
+      - '0.082558'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"code":2202,"message":"Access denied from IP 172.23.0.13"}'
+  recorded_at: Thu, 04 Nov 2021 08:44:47 GMT
+recorded_with: VCR 6.0.0
