@@ -7,7 +7,7 @@ class ApiConnector
       ACTION = 'delete_dnssec_keys'
       ENDPOINT = {
         method: 'delete',
-        endpoint: '/nameservers',
+        endpoint: '/domains',
       }.freeze
 
       def delete_dnssec_keys(payload: nil, domain_name: '')

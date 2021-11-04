@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   end
 
   resources :nameservers, only: %i[show new create destroy], param: :domain_name
+  resources :dnssecs, only: %i[show new create destroy], param: :domain_name
 end
