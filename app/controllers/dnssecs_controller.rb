@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class DnssecsController < BaseController
-  # Get all the nameservers for domain name
+  # Get all the keys for domain name
   def show
     conn = ApiConnector::Dnssec::All.new(**auth_info)
     cmd = conn.load_all_dnssec_keys(domain_name: dnssec_params[:domain_name])
@@ -17,7 +17,7 @@ class DnssecsController < BaseController
 
   def new; end
 
-  # Add new nameserver to the domain
+  # Add new key to the domain
   def create
     conn = ApiConnector::Dnssec::Creator.new(**auth_info)
     cmd = conn.create_dnssec_keys(domain_name: dnssec_params[:domain_name],
