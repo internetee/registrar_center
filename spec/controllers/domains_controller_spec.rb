@@ -70,6 +70,20 @@ RSpec.describe DomainsController, type: :controller do
         period_unit: %w(y m).sample,
         exp_date: Date.today,
       }
+    },
+    {
+      method: :remove_hold,
+      http_method: :delete,
+      params: {
+        domain_name: 'aaa.bbb',
+      },
+    },
+    {
+      method: :add_hold,
+      http_method: :put,
+      params: {
+        domain_name: 'test.test',
+      },
     }
   ]
 
