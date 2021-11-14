@@ -13,8 +13,11 @@ Rails.application.routes.draw do
 
   resources :domains, only: %i[index show edit update destroy new create], param: :domain_name do
     put :renew, on: :collection
+    put :add_hold, on: :collection
+    delete :remove_hold, on: :collection
   end
 
   resources :nameservers, only: %i[show new create destroy], param: :domain_name
   resources :dnssecs, only: %i[show new create destroy], param: :domain_name
+
 end
