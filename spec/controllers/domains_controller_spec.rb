@@ -84,6 +84,21 @@ RSpec.describe DomainsController, type: :controller do
       params: {
         domain_name: 'test.test',
       },
+    },
+    {
+      method: :transfer_info,
+      http_method: :get,
+      params: {
+        domain_name: 'test.test',
+      },
+    },
+    {
+      method: :transfer,
+      http_method: :put,
+      params: {
+        domain_name: 'test.test',
+        transfer_code: 'aaabbb'
+      },
     }
   ]
 

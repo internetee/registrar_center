@@ -70,6 +70,32 @@ class DomainsController < BaseController
     end
   end
 
+  def transfer_info
+    conn = ApiConnector::Transfers::Reader.new(**auth_info)
+    cmd = conn.read_transfers(domain_name: domain_params[:domain_name])
+
+    if cmd.success
+      @messages = cmd.body['data']
+    elsif cmd.body['code'] == 2202
+      redirect_to controller: 'sessions', action: 'new'
+    else
+      internal_server_error
+    end
+  end
+
+  def transfer
+    conn = ApiConnector::Transfers::Creator.new(**auth_info)
+    cmd = conn.create_transfer(domain_name: domain_params[:domain_name], payload: transfer_payload)
+
+    if cmd.success
+      @messages = cmd.body['data']
+    elsif cmd.body['code'] == 2202
+      redirect_to controller: 'sessions', action: 'new'
+    else
+      internal_server_error
+    end
+  end
+
   def destroy
     conn = ApiConnector::Domains::Deleter.new(**auth_info)
     cmd = conn.delete_domain(domain_name: domain_params[:domain_name], payload: domain_payload)
@@ -114,7 +140,7 @@ class DomainsController < BaseController
   def domain_params
     params.permit(:id, :verified, :auth_code, :domain_name, :name, :reserved_pw, :transfer_code,
                   :period_unit, :period, :admin_contact, :tech_contact,
-                  :registrant, :code, :verified,
+                  :registrant, :code, :verified, :transfer_code,
                   nameserver_attributes: [[:hostname, :ipv4, :ipv6]],
                   dnskey_attributes: [[:flags, :protocol, :alg, :public_key]])
   end
@@ -169,6 +195,12 @@ class DomainsController < BaseController
       period: domain_params[:period],
       period_unit: domain_params[:period_unit],
       exp_date: domain_params[:exp_date],
+    }
+  end
+
+  def transfer_payload
+    {
+      transfer_code: domain_params[:transfer_code],
     }
   end
 end
