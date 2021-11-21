@@ -14,6 +14,14 @@ RSpec.describe BulkActionsController, type: :controller do
         ]
       }
     },
+    {
+      method: :contact_replace,
+      http_method: :patch,
+      params: {
+        current_contact_id: 1,
+        new_contact_id: 2
+      }
+    },
   ]
 
   it_behaves_like "Base controller with auth", options
