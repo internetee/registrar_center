@@ -15,9 +15,10 @@ Rails.application.routes.draw do
     put :renew, on: :collection
     put :add_hold, on: :collection
     delete :remove_hold, on: :collection
+    get :transfer_info, on: :member
+    post :transfer, on: :member
   end
 
   resources :nameservers, only: %i[show new create destroy], param: :domain_name
   resources :dnssecs, only: %i[show new create destroy], param: :domain_name
-
 end
