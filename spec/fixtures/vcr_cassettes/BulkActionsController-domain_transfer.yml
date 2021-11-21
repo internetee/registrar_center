@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://registry:3000/repp/v1/domains/transfer?data%5Bdomain_transfers%5D%5B0%5D%5Bdomain_name%5D=shop.test&data%5Bdomain_transfers%5D%5B0%5D%5Btransfer_code%5D=aaabbbccc
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - Basic dGVzdF9iZXN0bmFtZXM6dGVzdHRlc3Q=
+      User-Agent:
+      - Faraday v1.7.1
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 9d030373-c27d-43dc-b2d2-73452026af6a
+      X-Runtime:
+      - '0.527197'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"code":2202,"message":"Access denied from IP 172.23.0.14"}'
+  recorded_at: Sun, 21 Nov 2021 07:51:56 GMT
+recorded_with: VCR 6.0.0

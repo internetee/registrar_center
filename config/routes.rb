@@ -17,6 +17,13 @@ Rails.application.routes.draw do
     delete :remove_hold, on: :collection
     get :transfer_info, on: :member
     post :transfer, on: :member
+
+    collection do
+      post 'transfer', to: 'bulk_actions#domain_transfer'
+      patch 'contacts', to: 'bulk_actions#contact_replace'
+      post 'renew', to: 'bulk_actions#domain_renew'
+      put 'nameserver', to: 'bulk_actions#nameserver_change'
+    end
   end
 
   resources :nameservers, only: %i[show new create destroy], param: :domain_name

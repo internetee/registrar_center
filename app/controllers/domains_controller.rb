@@ -200,7 +200,7 @@ class DomainsController < BaseController
 
   def transfer_payload
     {
-      transfer_code: domain_params[:transfer_code]
+      transfer_code: domain_params[:transfer_code],
     }
   end
 end
