@@ -41,13 +41,22 @@ class BulkActionsController < BaseController
   end
 
   def domain_renew
+    conn = ApiConnector::BulkActions::DomainRenew.new(**auth_info)
+    cmd = conn.renew(payload: domain_renew_payload)
 
+    if cmd.success
+      @messages = cmd.body['data']
+    elsif cmd.body['code'] == 2202
+      redirect_to controller: 'sessions', action: 'new'
+    else
+      internal_server_error
+    end
   end
 
   private
 
   def bulk_actions_params
-    params.permit(:current_contact_id, :new_contact_id, :nameserver_id, :domains,
+    params.permit(:current_contact_id, :new_contact_id, :nameserver_id, :domains, :renew_period,
                   domain_transfers: [[:domain_name, :transfer_code]],
                   nameserver_attributes: [:hostname, :ipv4, :ipv6])
   end
@@ -80,6 +89,13 @@ class BulkActionsController < BaseController
         ipv4: bulk_actions_params[:nameserver_attributes][:ipv4],
         ipv6: bulk_actions_params[:nameserver_attributes][:ipv6],
       },
+    }
+  end
+
+  def domain_renew_payload
+    {
+      domains: bulk_actions_params[:domains],
+      renew_period: bulk_actions_params[:renew_period],
     }
   end
 end

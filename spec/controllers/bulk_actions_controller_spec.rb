@@ -35,6 +35,14 @@ RSpec.describe BulkActionsController, type: :controller do
         }
       }
     },
+    {
+      method: :domain_renew,
+      http_method: :post,
+      params: {
+        domains: ['shop.test, airport.test'],
+        renew_period: '1y'
+      }
+    }
   ]
 
   it_behaves_like "Base controller with auth", options
