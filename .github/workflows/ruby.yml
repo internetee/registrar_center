@@ -98,7 +98,7 @@ jobs:
 
       - uses: actions/download-artifact@v2.0.10
         with:
-          name: coverage-3
+          name: coverage-3.0.3
           path: coverage
 
       - name: Aggregate & upload results to Code Climate
