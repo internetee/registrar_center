@@ -50,7 +50,7 @@ group :test do
   gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
   gem 'fuubar'
   gem 'rspec-rails', '~> 5.1.0'
-  gem 'simplecov', '0.17.1', require: false # CC last supported v0.17
+  gem 'simplecov', '0.22.0', require: false # CC last supported v0.17
   gem 'vcr'
   gem 'webdrivers'
   gem 'webmock'
