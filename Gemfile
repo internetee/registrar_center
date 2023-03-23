@@ -33,7 +33,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   gem 'dotenv-rails'
   gem 'listen'
-  gem 'pry', '0.14.1'
+  gem 'pry', '0.14.2'
 end
 
 group :development do
