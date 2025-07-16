@@ -7,7 +7,7 @@ gem 'faraday'
 gem 'faraday_middleware'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1'
+gem 'rails', '~> 7.1', '>= 7.1.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -15,11 +15,11 @@ gem 'puma', '~> 5.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.4'
+gem 'webpacker', '~> 5.4', '>= 5.4.3'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
+gem 'jbuilder', '~> 2.11', '>= 2.11.3'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -31,27 +31,27 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', '>= 2.8.0'
   gem 'listen'
   gem 'pry', '0.14.1'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
+  gem 'web-console', '>= 4.2.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :test do
-  gem 'capybara'
-  gem 'factory_bot'
+  gem 'capybara', '>= 3.36.0'
+  gem 'factory_bot', '>= 6.2.1'
   gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
   gem 'fuubar'
-  gem 'rspec-rails', '~> 5.1.0'
+  gem 'rspec-rails', '~> 6.0.0'
   gem 'simplecov', '0.17.1', require: false # CC last supported v0.17
   gem 'vcr'
-  gem 'webdrivers'
-  gem 'webmock'
+  gem 'webdrivers', '>= 4.7.0'
+  gem 'webmock', '>= 3.15.1'
 end
